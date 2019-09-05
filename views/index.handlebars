@@ -1,6 +1,6 @@
 <h1>flashcards</h1>
 
-<h2>not english subject flashcards</h2>
+<h2>subjects that are not english!</h2>
 
 <ul>
   {{#each flashcards}}
@@ -10,7 +10,7 @@
   {{/each}}
 </ul>
 
-<h2>english flashcard</h2>
+<h2>subjects that are english!</h2>
 
 <ul>
   {{#each flashcards}}
@@ -24,17 +24,17 @@
 <form class="create-form">
 
   <div class="form-group">
-    <label for="question">question:</label>
-    <input type="text" id="question" name="question">
-    <label for="answer">answer:</label>
-    <input type="text" id="answer" name="answer">
+    <label for="question">Question:</label>
+    <input type="text" id="question" name="name">
+    <label for="answer">Answer:</label>
+    <input type="text" id="answer" answer="answer">
   </div>
 
   <div class="form-group">
     <label for="english">English?</label><br>
-    <input type="radio" name="english" value="1" checked> Another subject<br>
-    <input type="radio" name="english" value="0"> English
+    <input type="radio" name="english" value="1" checked> English<br>
+    <input type="radio" name="english" value="0"> Not english
   </div>
 
-  <button type="submit">Add Flashcard</button>
+  <button type="submit">Add flashcard</button>
 </form>

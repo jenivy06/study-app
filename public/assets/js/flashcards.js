@@ -20,6 +20,26 @@ $(function() {
         }
       );
     });
+    $(".change-math").on("click", function(event) {
+      var id = $(this).data("id");
+      var newMath = $(this).data("newmath");
+  
+      var newMathState = {
+        math: newMath
+      };
+  
+      // Send the PUT request.
+      $.ajax("/api/flashcards/" + id, {
+        type: "PUT",
+        data: newMathState
+      }).then(
+        function() {
+          console.log("changed subject to", newMath);
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    });
   
     $(".create-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
@@ -28,7 +48,8 @@ $(function() {
       var newFlashcard = {
         question: $("#question").val().trim(),
         answer: $("#answer").val().trim(),
-        english: $("[question=english]:checked").val()
+        english: $("[name=english]:checked").val(),
+        math: $("[question=math]:checked").val()
       };
   
       // Send the POST request.
