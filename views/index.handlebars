@@ -1,0 +1,38 @@
+<h1>flashcards</h1>
+
+<h2>not english subject flashcards</h2>
+
+<ul>
+  {{#each flashcards}}
+    {{#unless english}}
+      {{> flashcards/flashcard-block english=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>english flashcard</h2>
+
+<ul>
+  {{#each flashcards}}
+    {{#if english}}
+      {{> flashcards/flashcard-block english=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a flashcard</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="question">question:</label>
+    <input type="text" id="question" name="question">
+  </div>
+
+  <div class="form-group">
+    <label for="english">English?</label><br>
+    <input type="radio" name="english" value="1" checked> English!<br>
+    <input type="radio" name="english" value="0"> Another subject
+  </div>
+
+  <button type="submit">Add Flashcard</button>
+</form>
