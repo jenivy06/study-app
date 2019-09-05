@@ -27,6 +27,7 @@ $(function() {
   
       var newFlashcard = {
         question: $("#question").val().trim(),
+        answer: $("#answer").val().trim(),
         english: $("[question=english]:checked").val()
       };
   

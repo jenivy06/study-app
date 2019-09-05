@@ -18,9 +18,9 @@ router.get("/", function(req, res) {
 
 router.post("/api/flashcards", function(req, res) {
     flashcard.create([
-    "question", "english"
+    "question", "answer", "english"
   ], [
-    req.body.question, req.body.english
+    req.body.question, req.body.answer, req.body.english
   ], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });

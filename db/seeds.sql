@@ -1,3 +1,3 @@
 
-INSERT INTO flashcards (question, english) VALUES ('what is the contraction for they are', true);
+INSERT INTO flashcards (question, answer, english) VALUES ('what is the first letter of the alphabet', 'A', true);
 
