@@ -18,9 +18,9 @@ router.get("/", function(req, res) {
 
 router.post("/api/flashcards", function(req, res) {
     flashcard.create([
-    "question", "answer", "english", "math"
+    "question", "answer", "english", "history", "math"
   ], [
-    req.body.question, req.body.answer, req.body.english, req.body.math
+    req.body.question, req.body.answer, req.body.english, req.body.history, req.body.math
   ], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
@@ -34,6 +34,16 @@ router.put("/api/flashcards/:id", function(req, res) {
 
   flashcard.update({
     english: req.body.english
+  }, condition, function(result) {
+    if (result.changedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+  flashcard.update({
+    history: req.body.history
   }, condition, function(result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404

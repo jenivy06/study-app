@@ -1,21 +1,31 @@
 <h1>flashcards</h1>
 
-<h2>subjects that are not english!</h2>
-
-<ul>
-  {{#each flashcards}}
-    {{#unless english}}
-      {{> flashcards/flashcard-block english=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
 <h2>subjects that are english!</h2>
 
 <ul>
   {{#each flashcards}}
     {{#if english}}
       {{> flashcards/flashcard-block english=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>subjects that are history!</h2>
+
+<ul>
+  {{#each flashcards}}
+    {{#if history}}
+      {{> flashcards/flashcard-block history=true}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>subjects that are math!</h2>
+
+<ul>
+  {{#each flashcards}}
+    {{#if math}}
+      {{> flashcards/flashcard-block math=true}}
     {{/if}}
   {{/each}}
 </ul>
@@ -31,9 +41,16 @@
   </div>
 
   <div class="form-group">
-    <label for="english">English?</label><br>
-    <input type="radio" name="english" value="1" checked> English<br>
-    <input type="radio" name="english" value="0"> Not english
+    <label for="english"></label><br>
+    <input type="radio" name="english" value="1"> English<br>
+  </div>
+  <div class="form-group">
+    <label for="history"></label><br>
+    <input type="radio" name="history" value="1"> History<br>
+  </div>
+  <div class="form-group">
+    <label for="math"></label><br>
+    <input type="radio" name="math" value="1"> Math<br>
   </div>
 
   <button type="submit">Add flashcard</button>

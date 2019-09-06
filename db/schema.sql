@@ -10,5 +10,6 @@ CREATE TABLE flashcards
 	answer varchar(1200) NOT NULL,
 	english BOOLEAN DEFAULT false,
 	math BOOLEAN DEFAULT false,
+	history BOOLEAN DEFAULT false,
 	PRIMARY KEY (id)
 );
