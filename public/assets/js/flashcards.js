@@ -43,7 +43,7 @@ $(function() {
 
   $(".change-math").on("click", function(event) {
     var id = $(this).data("id");
-    var newMath = $(this).data("newHistory");
+    var newMath = $(this).data("newMath");
 
     var newMathState = {
       math: newMath
@@ -62,6 +62,27 @@ $(function() {
     );
   });
 
+  $(".change-science").on("click", function(event) {
+    var id = $(this).data("id");
+    var newScience= $(this).data("newScience");
+
+    var newScienceState = {
+      science: newScience
+    };
+
+    // Send the PUT request.
+    $.ajax("/api/flashcards/" + id, {
+      type: "PUT",
+      data: newScienceState
+    }).then(
+      function() {
+        console.log("changed subject to", newScience);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
   $(".create-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -71,7 +92,8 @@ $(function() {
       answer: $("#answer").val().trim(),
       english: $("[name=english]:checked").val(),
       history: $("[name=history]:checked").val(),
-      math: $("[name=math]:checked").val()
+      math: $("[name=math]:checked").val(),
+      science: $("[name=science]:checked").val(),
     };
 
     // Send the POST request.

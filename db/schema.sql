@@ -11,5 +11,6 @@ CREATE TABLE flashcards
 	english BOOLEAN DEFAULT false,
 	math BOOLEAN DEFAULT false,
 	history BOOLEAN DEFAULT false,
+	science BOOLEAN DEFAULT false,
 	PRIMARY KEY (id)
 );

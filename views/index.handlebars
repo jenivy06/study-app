@@ -30,6 +30,16 @@
   {{/each}}
 </ul>
 
+<h2>subjects that are science!</h2>
+
+<ul>
+  {{#each flashcards}}
+    {{#if science}}
+      {{> flashcards/flashcard-block science=true}}
+    {{/if}}
+  {{/each}}
+</ul>
+
 <h2>Add a flashcard</h2>
 <form class="create-form">
 
@@ -51,6 +61,10 @@
   <div class="form-group">
     <label for="math"></label><br>
     <input type="radio" name="math" value="1"> Math<br>
+  </div>
+  <div class="form-group">
+    <label for="science"></label><br>
+    <input type="radio" name="science" value="1"> Science<br>
   </div>
 
   <button type="submit">Add flashcard</button>
